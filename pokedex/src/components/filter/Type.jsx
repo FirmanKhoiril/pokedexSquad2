@@ -27,7 +27,6 @@ const FilterType = () => {
         }));
       };
 
-      
   return (
     <div
         className="w-full border relative py-3 justify-between flex items-center px-2 border-primary/90 hover:border-primary rounded-md"
