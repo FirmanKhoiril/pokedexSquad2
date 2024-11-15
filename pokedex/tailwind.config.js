@@ -10,6 +10,10 @@ export default {
         primary: '#3666d5',
         yellow: '#fccd03',
       },
+      borderColor: {
+        primary: '#3666d5',
+        yellow: '#fccd03',
+      }
     },
   },
   plugins: [],

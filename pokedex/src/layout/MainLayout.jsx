@@ -5,7 +5,6 @@ export default function MainLayout() {
   return (
     <main>
     <Outlet />
-    Testing
    </main>
   )
 }
