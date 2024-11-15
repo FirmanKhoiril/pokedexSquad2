@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
 const Navbar = () => {
+  const [activeLink, setActiveLink] = useState("Pokédex");
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
   };
 
   return (
@@ -15,34 +16,88 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex space-x-8 mx-auto">
-          <a href="#home" className="text-blue-500 hover:underline">
+          <a
+            href="#home"
+            onClick={() => handleLinkClick("Home")}
+            className={`${
+              activeLink === "Home"
+                ? "text-blue-600 font-semibold underline"
+                : "text-blue-300"
+            } hover:text-blue-500`}
+          >
             Home
           </a>
-          <a href="#pokedex" className="text-blue-500 font-semibold underline">
+          <a
+            href="#pokedex"
+            onClick={() => handleLinkClick("Pokédex")}
+            className={`${
+              activeLink === "Pokédex"
+                ? "text-blue-600 font-semibold underline"
+                : "text-blue-300"
+            } hover:text-blue-500`}
+          >
             Pokédex
           </a>
-          <a href="#videogames" className="text-blue-500 hover:underline">
+          <a
+            href="#videogames"
+            onClick={() => handleLinkClick("Video Games")}
+            className={`${
+              activeLink === "Video Games"
+                ? "text-blue-600 font-semibold underline"
+                : "text-blue-300"
+            } hover:text-blue-500`}
+          >
             Video Games
           </a>
-          <a href="#cardgame" className="text-blue-500 hover:underline">
+          <a
+            href="#cardgame"
+            onClick={() => handleLinkClick("Card Game")}
+            className={`${
+              activeLink === "Card Game"
+                ? "text-blue-600 font-semibold underline"
+                : "text-blue-300"
+            } hover:text-blue-500`}
+          >
             Card Game
           </a>
-          <a href="#pokemonTV" className="text-blue-500 hover:underline">
+          <a
+            href="#pokemonTV"
+            onClick={() => handleLinkClick("Pokémon TV")}
+            className={`${
+              activeLink === "Pokémon TV"
+                ? "text-blue-600 font-semibold underline"
+                : "text-blue-300"
+            } hover:text-blue-500`}
+          >
             Pokémon TV
           </a>
-          <a href="#events" className="text-blue-500 hover:underline">
+          <a
+            href="#events"
+            onClick={() => handleLinkClick("Events")}
+            className={`${
+              activeLink === "Events"
+                ? "text-blue-600 font-semibold underline"
+                : "text-blue-300"
+            } hover:text-blue-500`}
+          >
             Events
           </a>
-          <a href="#news" className="text-blue-500 hover:underline">
+          <a
+            href="#news"
+            onClick={() => handleLinkClick("News")}
+            className={`${
+              activeLink === "News"
+                ? "text-blue-600 font-semibold underline"
+                : "text-blue-300"
+            } hover:text-blue-500`}
+          >
             News
           </a>
         </div>
 
-        <div className="hidden md:block w-24"></div>
-
         <button
           className="md:hidden focus:outline-none ml-auto"
-          onClick={toggleMenu}
+          onClick={() => setIsOpen(!isOpen)}
         >
           <svg
             className="w-6 h-6 text-blue-500"
@@ -64,43 +119,78 @@ const Navbar = () => {
           <div className="md:hidden absolute top-16 left-0 right-0 bg-white shadow-md z-10">
             <a
               href="#home"
-              className="block px-4 py-2 text-blue-500 hover:bg-gray-100"
+              onClick={() => handleLinkClick("Home")}
+              className={`block px-4 py-2 ${
+                activeLink === "Home"
+                  ? "text-blue-600 font-semibold underline"
+                  : "text-blue-300"
+              } hover:bg-gray-100`}
             >
               Home
             </a>
             <a
               href="#pokedex"
-              className="block px-4 py-2 text-blue-500 hover:bg-gray-100 font-semibold underline"
+              onClick={() => handleLinkClick("Pokédex")}
+              className={`block px-4 py-2 ${
+                activeLink === "Pokédex"
+                  ? "text-blue-600 font-semibold underline"
+                  : "text-blue-300"
+              } hover:bg-gray-100`}
             >
               Pokédex
             </a>
             <a
               href="#videogames"
-              className="block px-4 py-2 text-blue-500 hover:bg-gray-100"
+              onClick={() => handleLinkClick("Video Games")}
+              className={`block px-4 py-2 ${
+                activeLink === "Video Games"
+                  ? "text-blue-600 font-semibold underline"
+                  : "text-blue-300"
+              } hover:bg-gray-100`}
             >
               Video Games
             </a>
             <a
               href="#cardgame"
-              className="block px-4 py-2 text-blue-500 hover:bg-gray-100"
+              onClick={() => handleLinkClick("Card Game")}
+              className={`block px-4 py-2 ${
+                activeLink === "Card Game"
+                  ? "text-blue-600 font-semibold underline"
+                  : "text-blue-300"
+              } hover:bg-gray-100`}
             >
               Card Game
             </a>
             <a
               href="#pokemonTV"
-              className="block px-4 py-2 text-blue-500 hover:bg-gray-100"
+              onClick={() => handleLinkClick("Pokémon TV")}
+              className={`block px-4 py-2 ${
+                activeLink === "Pokémon TV"
+                  ? "text-blue-600 font-semibold underline"
+                  : "text-blue-300"
+              } hover:bg-gray-100`}
             >
               Pokémon TV
             </a>
             <a
               href="#events"
-              className="block px-4 py-2 text-blue-500 hover:bg-gray-100"
+              onClick={() => handleLinkClick("Events")}
+              className={`block px-4 py-2 ${
+                activeLink === "Events"
+                  ? "text-blue-600 font-semibold underline"
+                  : "text-blue-300"
+              } hover:bg-gray-100`}
             >
               Events
             </a>
             <a
               href="#news"
-              className="block px-4 py-2 text-blue-500 hover:bg-gray-100"
+              onClick={() => handleLinkClick("News")}
+              className={`block px-4 py-2 ${
+                activeLink === "News"
+                  ? "text-blue-600 font-semibold underline"
+                  : "text-blue-300"
+              } hover:bg-gray-100`}
             >
               News
             </a>
