@@ -1,8 +1,7 @@
-import { useState } from "react";
-
 import { MdArrowDropDown } from "react-icons/md";
 import { weaknessName } from "../../services/DataDummy";
 import useOutsideToCloseEvent from "../../hooks/useOutsideToCloseEvent";
+import { useGlobalContext } from "../../context/useContext";
 
 const FilterWeakness = () => {
   const {
@@ -10,7 +9,7 @@ const FilterWeakness = () => {
     setToogleSelectWeakness,
     filterWeaknessContainer,
   } = useOutsideToCloseEvent();
-  const [optionSelectWeakness, setOptionSelectWeakness] = useState("Weakness");
+  const { setOptionSelectWeakness, optionSelectWeakness} = useGlobalContext()
 
   const handleDropdownToggle = () => {
     setToogleSelectWeakness((prev) => !prev);
@@ -19,6 +18,7 @@ const FilterWeakness = () => {
   const handleTypeSelect = (weak, e) => {
     e.stopPropagation();
     setOptionSelectWeakness(weak);
+    setToogleSelectWeakness(false);
   };
 
   return (

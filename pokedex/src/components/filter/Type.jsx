@@ -1,15 +1,12 @@
-import { useState } from "react";
 import useOutsideToCloseEvent from "../../hooks/useOutsideToCloseEvent";
 import { MdArrowDropDown } from "react-icons/md";
 import { types } from "../../services/DataDummy";
+import { useGlobalContext } from "../../context/useContext";
 
 const FilterType = () => {
   const { toogleSelectType, setToogleSelectType, filterTypeContainer } =
     useOutsideToCloseEvent();
-  const [optionSelectType, setOptionSelectType] = useState({
-    id: "",
-    type: "Type",
-  });
+    const { setOptionSelectType, optionSelectType} = useGlobalContext()
 
   const handleDropdownToggle = () => {
     setToogleSelectType((prev) => !prev);
@@ -22,6 +19,7 @@ const FilterType = () => {
       id: type.id,
       type: type.name,
     }));
+    setToogleSelectType(false);
   };
 
   return (
