@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import PokemonList from "../components/PokemonList";
 import Filter from '../components/Filter'
 import {useQuery} from '@tanstack/react-query'
 import { FilterPokemon } from '../api/FetchPokemon'
@@ -21,9 +22,10 @@ const Home = () => {
   
   return (
     <div>
+      <PokemonList />
       <Filter />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
