@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 
 const Filter = () => {
@@ -34,6 +35,21 @@ const Filter = () => {
           className="border border-blue-500 rounded-md px-3 py-2 text-base font-medium text-gray-900 focus:ring-1 focus:ring-blue-500 focus:outline-none"
         />
       </div>
+=======
+import FilterGeneration from "./filter/Generation";
+import FilterType from "./filter/Type";
+import FilterWeakness from "./filter/Weakness";
+import ApplyAndReset from "./filter/ApplyAndReset";
+
+
+const Filter = () => {
+  return (
+    <div className="flex flex-col font-semibold gap-8 items-center p-2 w-full max-w-[240px]">
+      <FilterType />
+      <FilterWeakness />
+     <FilterGeneration />
+      <ApplyAndReset />
+>>>>>>> 54d7408d1aa57c26e44e1944f8212364d6b620d8
     </div>
   );
 };
