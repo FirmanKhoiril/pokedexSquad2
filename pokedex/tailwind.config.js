@@ -8,11 +8,11 @@ export default {
     extend: {
       colors: {
         primary: '#3666d5',
-        yellow: '#fccd03',
+        secondary: '#fccd03',
       },
       borderColor: {
         primary: '#3666d5',
-        yellow: '#fccd03',
+        secondary: '#fccd03',
       }
     },
   },
