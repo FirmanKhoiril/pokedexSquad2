@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import PokemonList from "../components/PokemonList";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div>
+      <PokemonList />
+    </div>
+  );
+};
 
-export default Home
+export default Home;
