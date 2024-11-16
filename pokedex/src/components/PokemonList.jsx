@@ -1,5 +1,6 @@
 import React from "react";
 import PokemonCard from "./PokemonCard";
+import Filter from "../components/Filter";
 
 const PokemonList = () => {
   const pokemonData = [
@@ -27,8 +28,10 @@ const PokemonList = () => {
   ];
 
   return (
-    <div className="flex justify-center mt-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4">
+    <div className="flex flex-col items-center mt-10">
+      <Filter />
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 px-4">
         {pokemonData.map((pokemon) => (
           <PokemonCard
             key={pokemon.number}
