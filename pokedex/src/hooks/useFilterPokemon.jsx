@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { FilterPokemon } from "../api/FetchPokemon";
 import { useGlobalContext } from "../context/useContext";
+
 export default function useFilterPokemon() {
   const {
     optionSelectGeneration,
     optionSelectType,
     optionSelectWeakness,
-    optionSortBy,
-    sortRange
+    optionSortBy
   } = useGlobalContext();
 
   const { data, isLoading, isFetching, isSuccess } = useQuery({
