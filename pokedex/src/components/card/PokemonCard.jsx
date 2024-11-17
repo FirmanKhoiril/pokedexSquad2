@@ -44,7 +44,7 @@ const PokemonCard = ({ image, name, id, types }) => {
 
       <button
         type="button"
-        onClick={handleBookmarkClick} // Bookmark button click
+        onClick={handleBookmarkClick}
         className="absolute z-20 p-2 top-2 right-2"
       >
         <svg
