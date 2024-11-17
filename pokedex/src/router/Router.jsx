@@ -4,6 +4,7 @@ import {
 import App from "../App";
 import Home from '../pages/Home'
 import PokemonDetail from "../pages/PokemonDetail";
+import CardGame from "../pages/CardGame";
 
 export const router = createBrowserRouter([
     {
@@ -13,6 +14,10 @@ export const router = createBrowserRouter([
         {
           path: "/",
           element: <Home />,
+        },
+        {
+          path: "/card-game",
+          element: <CardGame />,
         },
         {
           path: "/pokemon/:id",
