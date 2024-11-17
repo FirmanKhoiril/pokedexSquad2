@@ -9,7 +9,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-white">
+      {" "}
+      {/* Menghapus shadow-md */}
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center">
           <img src="/src/assets/Logo.png" alt="Pokemon Logo" className="w-24" />
@@ -38,17 +40,7 @@ const Navbar = () => {
           >
             Pokédex
           </a>
-          <a
-            href="#videogames"
-            onClick={() => handleLinkClick("Video Games")}
-            className={`${
-              activeLink === "Video Games"
-                ? "text-blue-600 font-semibold underline"
-                : "text-blue-300"
-            } hover:text-blue-500`}
-          >
-            Video Games
-          </a>
+
           <a
             href="#cardgame"
             onClick={() => handleLinkClick("Card Game")}
@@ -60,17 +52,7 @@ const Navbar = () => {
           >
             Card Game
           </a>
-          <a
-            href="#pokemonTV"
-            onClick={() => handleLinkClick("Pokémon TV")}
-            className={`${
-              activeLink === "Pokémon TV"
-                ? "text-blue-600 font-semibold underline"
-                : "text-blue-300"
-            } hover:text-blue-500`}
-          >
-            Pokémon TV
-          </a>
+
           <a
             href="#events"
             onClick={() => handleLinkClick("Events")}
@@ -116,7 +98,7 @@ const Navbar = () => {
         </button>
 
         {isOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-white shadow-md z-10">
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-white z-10">
             <a
               href="#home"
               onClick={() => handleLinkClick("Home")}
@@ -139,17 +121,7 @@ const Navbar = () => {
             >
               Pokédex
             </a>
-            <a
-              href="#videogames"
-              onClick={() => handleLinkClick("Video Games")}
-              className={`block px-4 py-2 ${
-                activeLink === "Video Games"
-                  ? "text-blue-600 font-semibold underline"
-                  : "text-blue-300"
-              } hover:bg-gray-100`}
-            >
-              Video Games
-            </a>
+
             <a
               href="#cardgame"
               onClick={() => handleLinkClick("Card Game")}
@@ -161,17 +133,7 @@ const Navbar = () => {
             >
               Card Game
             </a>
-            <a
-              href="#pokemonTV"
-              onClick={() => handleLinkClick("Pokémon TV")}
-              className={`block px-4 py-2 ${
-                activeLink === "Pokémon TV"
-                  ? "text-blue-600 font-semibold underline"
-                  : "text-blue-300"
-              } hover:bg-gray-100`}
-            >
-              Pokémon TV
-            </a>
+
             <a
               href="#events"
               onClick={() => handleLinkClick("Events")}
