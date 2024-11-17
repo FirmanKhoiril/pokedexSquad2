@@ -12,7 +12,7 @@ const PokemonList = () => {
 
   return (
     <div className="flex justify-center w-full mt-2">
-      <div className="flex flex-wrap items-center justify-between gap-6 w-full px-4">
+      <div className="flex flex-wrap items-center gap-6 w-full px-4">
         {sortedData.length === 0 ? (
           <NotFound />
         ) : (

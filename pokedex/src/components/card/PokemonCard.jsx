@@ -32,7 +32,7 @@ const PokemonCard = ({ image, name, id, types }) => {
             return (
               <span
                 key={typeName}
-                className={`px-3 py-1 capitalize rounded-full text-sm text-white ${bgColor}`}
+                className={`px-4 py-1.5 capitalize rounded-full text-sm text-white ${bgColor}`}
               >
                 {typeName}
               </span>

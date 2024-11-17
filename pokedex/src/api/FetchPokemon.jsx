@@ -20,7 +20,7 @@ const getPokemonByWeakness = async (weakness) => {
   const weakTypes = response.data.damage_relations.double_damage_from.map(
     (w) => w.name
   );
-
+  
   const weakPokemonPromises = weakTypes.map(async (weakType) => {
     const weakTypeResponse = await axios.get(`${BASE_URL}/type/${weakType}`);
     return weakTypeResponse.data.pokemon.map((p) => p.pokemon.name);
@@ -60,7 +60,9 @@ export const FilterPokemon = async ({ generation, type, weakness }) => {
       filteredPokemon = filteredPokemon.filter((name) =>
         pokemonByWeakness.includes(name)
       );
+      console.log(filteredPokemon);
     }
+    
 
     filteredPokemon = filteredPokemon.filter(
       (pokemonName) => !excludedPokemon.includes(pokemonName)
@@ -87,7 +89,7 @@ export const FilterPokemon = async ({ generation, type, weakness }) => {
 
 const getAllPokemon = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/pokemon?limit=1300`);
+    const response = await axios.get(`${BASE_URL}/pokemon?limit=1302`);
     const pokemonNames = response.data.results.map((p) => p.name);
 
     const detailedPokemonPromises = pokemonNames.map(async (pokemonName) => {
