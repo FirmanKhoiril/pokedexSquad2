@@ -1,43 +1,22 @@
 import PokemonCard from "./PokemonCard";
-import { useQuery } from "@tanstack/react-query";
-import { FilterPokemon } from "../../api/FetchPokemon";
-import { useGlobalContext } from "../../context/useContext";
+
 import Loading from "../Loading";
 import NotFound from "../NotFound";
+import useFilterPokemon from "../../hooks/useFilterPokemon";
 
 const PokemonList = () => {
-  const {
-    optionSelectGeneration,
-    optionSelectType,
-    optionSelectWeakness,
-  } = useGlobalContext();
+  const {isLoading, isFetching, sortPokemon, data, isSuccess} = useFilterPokemon()
+  if (isFetching || isLoading) return <Loading />;
 
-  const { data, isLoading, isFetching, isSuccess, } = useQuery({
-    queryKey: [
-      "pokemon",
-      optionSelectGeneration.id,
-      optionSelectType.id,
-      optionSelectWeakness
-    ],
-    queryFn: () =>
-      FilterPokemon({
-        generation: optionSelectGeneration.id,
-        type: optionSelectType.id,
-        weakness: optionSelectWeakness,
-      }),
-    refetchOnWindowFocus: false,
-  });
-
-  if (isFetching || isLoading)
-    return <Loading />
+  const sortedData = isSuccess ? sortPokemon(data) : [];
 
   return (
     <div className="flex justify-center w-full mt-2">
-      <div className="flex flex-wrap items-center gap-6 w-full px-4">
-        {isSuccess && data?.length === 0 ? (
-         <NotFound />
-        ) : ( 
-          data?.map((pokemon) => (
+      <div className="flex flex-wrap items-center justify-between gap-6 w-full px-4">
+        {sortedData.length === 0 ? (
+          <NotFound />
+        ) : (
+          sortedData.map((pokemon) => (
             <PokemonCard
               key={pokemon?.id}
               image={pokemon?.sprites?.other["official-artwork"]?.front_default}

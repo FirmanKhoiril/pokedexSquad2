@@ -9,8 +9,6 @@ const getPokemonByGeneration = async (generation) => {
 };
 
 const getPokemonByType = async (type) => {
-  console.log(type);
-  
   const response = await axios.get(`${BASE_URL}/type/${type}`);
   return response.data.pokemon.map((p) => p.pokemon.name);
 };
@@ -89,7 +87,7 @@ export const FilterPokemon = async ({ generation, type, weakness }) => {
 
 const getAllPokemon = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/pokemon?limit=1000`);
+    const response = await axios.get(`${BASE_URL}/pokemon?limit=1300`);
     const pokemonNames = response.data.results.map((p) => p.name);
 
     const detailedPokemonPromises = pokemonNames.map(async (pokemonName) => {

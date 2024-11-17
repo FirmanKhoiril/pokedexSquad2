@@ -13,12 +13,13 @@ const StateContext = createContext({
     type: "Type",
   },
   setOptionSelectType: () => {},
-  triggerFilter: false,
-  setTriggerFilter: () => {},
+  optionSortBy: "id",
+  setOptionSortBy: () => {},
 });
 
 export const ContextProvider = ({ children }) => {
   const [optionSelectWeakness, setOptionSelectWeakness] = useState("Weakness");
+  const [optionSortBy, setOptionSortBy] = useState("id")
   const [optionSelectGeneration, setOptionSelectGeneration] = useState({
     id: "",
     generation: "Generation",
@@ -27,15 +28,16 @@ export const ContextProvider = ({ children }) => {
     id: "",
     type: "Type",
   });
-  const [triggerFilter, setTriggerFilter] = useState(false)
+
+
   return (
     <StateContext.Provider
       value={{
         optionSelectGeneration,
         optionSelectWeakness,
         optionSelectType,
-        triggerFilter,
-        setTriggerFilter,
+        optionSortBy,
+        setOptionSortBy,
         setOptionSelectGeneration,
         setOptionSelectType,
         setOptionSelectWeakness,

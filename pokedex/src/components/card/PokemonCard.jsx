@@ -1,11 +1,13 @@
-import React from "react";
 import { typeColors } from "../../services/DataDummy";
 import { Link } from "react-router-dom";
 
 const PokemonCard = ({ image, name, id, types }) => {
   return (
-    <Link to={`/pokemon/${id}`} className="border-2 border-blue-500 rounded-lg shadow-md p-4 w-full sm:w-[300px] lg:w-72 flex flex-col items-center relative cursor-pointer">
-      <img src={image} alt={name} loading="lazy" className="w-32 h-32 mb-4" />
+    <Link
+      to={`/pokemon/${id}`}
+      className="border-2 border-blue-500 rounded-lg shadow-md p-4 w-full sm:w-[300px] lg:w-72 flex flex-col items-center relative cursor-pointer transition-transform duration-300 transform hover:rotate-1 hover:-translate-y-2"
+    >
+      <img src={image || "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"} alt={name} loading="lazy" className="w-32 h-32 mb-4" />
 
       <h2 className="text-lg font-bold text-gray-800 capitalize">{name}</h2>
       <p className="text-gray-500 text-sm">#{String(id).padStart(4, '0')}</p>
