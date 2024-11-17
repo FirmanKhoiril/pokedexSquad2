@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("Pokédex");
@@ -16,8 +17,8 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex space-x-8 mx-auto">
-          <a
-            href="#home"
+          <Link
+            to="/"
             onClick={() => handleLinkClick("Home")}
             className={`${
               activeLink === "Home"
@@ -26,9 +27,9 @@ const Navbar = () => {
             } hover:text-blue-500`}
           >
             Home
-          </a>
-          <a
-            href="#pokedex"
+          </Link>
+          <Link
+            to="/"
             onClick={() => handleLinkClick("Pokédex")}
             className={`${
               activeLink === "Pokédex"
@@ -37,10 +38,10 @@ const Navbar = () => {
             } hover:text-blue-500`}
           >
             Pokédex
-          </a>
+          </Link>
 
-          <a
-            href="#cardgame"
+          <Link
+            to="/card-game"
             onClick={() => handleLinkClick("Card Game")}
             className={`${
               activeLink === "Card Game"
@@ -49,10 +50,9 @@ const Navbar = () => {
             } hover:text-blue-500`}
           >
             Card Game
-          </a>
-
-          <a
-            href="#events"
+          </Link>
+          <Link
+            to="/"
             onClick={() => handleLinkClick("Events")}
             className={`${
               activeLink === "Events"
@@ -61,9 +61,9 @@ const Navbar = () => {
             } hover:text-blue-500`}
           >
             Events
-          </a>
-          <a
-            href="#news"
+          </Link>
+          <Link
+            to="/"
             onClick={() => handleLinkClick("News")}
             className={`${
               activeLink === "News"
@@ -72,7 +72,7 @@ const Navbar = () => {
             } hover:text-blue-500`}
           >
             News
-          </a>
+          </Link>
         </div>
 
         <button
@@ -97,8 +97,8 @@ const Navbar = () => {
 
         {isOpen && (
           <div className="md:hidden absolute top-[62px] left-0 right-0 bg-white z-10">
-            <a
-              href="#home"
+            <Link
+              to="/"
               onClick={() => handleLinkClick("Home")}
               className={`block px-4 py-2 ${
                 activeLink === "Home"
@@ -107,9 +107,9 @@ const Navbar = () => {
               } hover:bg-gray-100`}
             >
               Home
-            </a>
-            <a
-              href="#pokedex"
+            </Link>
+            <Link
+              to="/"
               onClick={() => handleLinkClick("Pokédex")}
               className={`block px-4 py-2 ${
                 activeLink === "Pokédex"
@@ -118,10 +118,10 @@ const Navbar = () => {
               } hover:bg-gray-100`}
             >
               Pokédex
-            </a>
+            </Link>
 
-            <a
-              href="#cardgame"
+            <Link
+              to="/card-game"
               onClick={() => handleLinkClick("Card Game")}
               className={`block px-4 py-2 ${
                 activeLink === "Card Game"
@@ -130,10 +130,10 @@ const Navbar = () => {
               } hover:bg-gray-100`}
             >
               Card Game
-            </a>
+            </Link>
 
-            <a
-              href="#events"
+            <Link
+              to="/"
               onClick={() => handleLinkClick("Events")}
               className={`block px-4 py-2 ${
                 activeLink === "Events"
@@ -142,9 +142,9 @@ const Navbar = () => {
               } hover:bg-gray-100`}
             >
               Events
-            </a>
-            <a
-              href="#news"
+            </Link>
+            <Link
+              to="/"
               onClick={() => handleLinkClick("News")}
               className={`block px-4 py-2 ${
                 activeLink === "News"
@@ -153,7 +153,7 @@ const Navbar = () => {
               } hover:bg-gray-100`}
             >
               News
-            </a>
+            </Link>
           </div>
         )}
       </div>

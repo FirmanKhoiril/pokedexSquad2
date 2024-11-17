@@ -3,7 +3,7 @@ import {SyncLoader} from 'react-spinners'
 
 const Loading = () => {
   return (
-    <div className='w-full flex items-center justify-center max-h-[50%] h-full'>
+    <div className='w-full flex items-center justify-center min-h-[50dvh]'>
       <SyncLoader color='#3666d5' />
     </div>
   )
