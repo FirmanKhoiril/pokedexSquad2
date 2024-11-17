@@ -9,10 +9,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white">
-      {" "}
-      {/* Menghapus shadow-md */}
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+    <nav className="bg-white w-full sticky top-0 z-20 shadow-md">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between ">
         <div className="flex items-center">
           <img src="/src/assets/Logo.png" alt="Pokemon Logo" className="w-24" />
         </div>
@@ -98,7 +96,7 @@ const Navbar = () => {
         </button>
 
         {isOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-white z-10">
+          <div className="md:hidden absolute top-[62px] left-0 right-0 bg-white z-10">
             <a
               href="#home"
               onClick={() => handleLinkClick("Home")}

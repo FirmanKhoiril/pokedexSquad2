@@ -1,28 +1,29 @@
 import React from "react";
+import { typeColors } from "../../services/DataDummy";
+import { Link } from "react-router-dom";
 
-const PokemonCard = ({ image, name, number, types }) => {
+const PokemonCard = ({ image, name, id, types }) => {
   return (
-    <div className="border-2 border-blue-500 rounded-lg shadow-md p-4 w-full sm:w-[300px] lg:w-72 flex flex-col items-center relative">
-      <img src={image} alt={name} className="w-32 h-32 mb-4" />
+    <Link to={`/pokemon/${id}`} className="border-2 border-blue-500 rounded-lg shadow-md p-4 w-full sm:w-[300px] lg:w-72 flex flex-col items-center relative cursor-pointer">
+      <img src={image} alt={name} loading="lazy" className="w-32 h-32 mb-4" />
 
-      <h2 className="text-lg font-bold text-gray-800">{name}</h2>
-      <p className="text-gray-500 text-sm">#{number}</p>
+      <h2 className="text-lg font-bold text-gray-800 capitalize">{name}</h2>
+      <p className="text-gray-500 text-sm">#{String(id).padStart(4, '0')}</p>
 
       <div className="flex space-x-2 mt-4">
-        {types.map((type, index) => (
-          <span
-            key={index}
-            className={`px-3 py-1 rounded-full text-sm text-white ${
-              type === "Grass"
-                ? "bg-green-600"
-                : type === "Poison"
-                ? "bg-purple-600"
-                : "bg-gray-300"
-            }`}
-          >
-            {type}
-          </span>
-        ))}
+        {types?.map((type) => {
+          const typeName = type.type.name;
+          const bgColor = typeColors[typeName] || typeColors.Default;
+
+          return (
+            <span
+              key={typeName}
+              className={`px-3 py-1 capitalize rounded-full text-sm text-white ${bgColor}`}
+            >
+              {typeName}
+            </span>
+          );
+        })}
       </div>
 
       <div className="absolute top-2 right-2">
@@ -41,7 +42,7 @@ const PokemonCard = ({ image, name, number, types }) => {
           />
         </svg>
       </div>
-    </div>
+    </Link>
   );
 };
 
