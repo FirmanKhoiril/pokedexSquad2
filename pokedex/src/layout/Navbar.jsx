@@ -41,7 +41,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            to="/card-game"
+            to="/trading-card-game"
             onClick={() => handleLinkClick("Card Game")}
             className={`${
               activeLink === "Card Game"
@@ -121,7 +121,7 @@ const Navbar = () => {
             </Link>
 
             <Link
-              to="/card-game"
+              to="/trading-card-game"
               onClick={() => handleLinkClick("Card Game")}
               className={`block px-4 py-2 ${
                 activeLink === "Card Game"
