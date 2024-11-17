@@ -25,7 +25,7 @@ const FilterType = () => {
   return (
     <div
       ref={filterTypeContainer}
-      className="w-full border relative py-3 justify-between flex items-center px-2 border-primary/90 hover:border-primary rounded-md"
+      className="w-full border-2 relative py-3 justify-between flex items-center px-2 border-primary/90 hover:border-primary rounded-md"
       onClick={handleDropdownToggle}
     >
       <p>{optionSelectType.type}</p>
@@ -37,7 +37,7 @@ const FilterType = () => {
         <MdArrowDropDown size={20} />
       </span>
       {toogleSelectType && (
-        <div className="w-full flex flex-col h-auto bg-white space-y-0.5 py-1 absolute top-[48px] rounded-md left-0 px-1 border-primary border z-10">
+        <div className="w-full flex flex-col h-auto bg-white space-y-0.5 py-1 absolute top-[48px] rounded-md left-0 px-1 border-primary border-2 z-10">
           {types.map((type) => (
             <button
               className="text-sm px-2 py-1 rounded-md text-left hover:bg-gray-200"

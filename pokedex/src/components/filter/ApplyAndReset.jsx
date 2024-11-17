@@ -16,14 +16,8 @@ const ApplyAndReset = () => {
   }
 
   return (
-    <div className="flex w-full items-center justify-between">
-    <button
-      type="button"
-      className="bg-secondary text-sm rounded-md hover:bg-yellow-500 text-primary px-7 py-3"
-    >
-      Apply
-    </button>
-    <button type="button" onClick={handleResetOptionValue} className="text-primary hover:opacity-90 text-sm px-7 py-3">
+    <div className="flex w-full">
+    <button type="button" onClick={handleResetOptionValue} className="bg-secondary text-sm rounded-md hover:bg-yellow-500 text-primary px-7 py-3">
       Reset
     </button>
   </div>

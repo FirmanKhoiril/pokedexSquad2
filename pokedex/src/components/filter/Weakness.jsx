@@ -24,7 +24,7 @@ const FilterWeakness = () => {
   return (
     <div
       ref={filterWeaknessContainer}
-      className="w-full border relative py-3 justify-between flex items-center px-2 border-primary/90 hover:border-primary rounded-md"
+      className="w-full border-2 relative py-3 justify-between flex items-center px-2 border-primary/90 hover:border-primary rounded-md"
       onClick={handleDropdownToggle}
     >
       <p className="capitalize">{optionSelectWeakness}</p>
@@ -36,7 +36,7 @@ const FilterWeakness = () => {
         <MdArrowDropDown size={20} />
       </span>
       {toogleSelectWeakness && (
-        <div className="w-full flex flex-col h-auto bg-white space-y-0.5 py-1 absolute top-[48px] rounded-md left-0 px-1 border-primary border z-10">
+        <div className="w-full flex flex-col h-auto bg-white space-y-0.5 py-1 absolute top-[48px] rounded-md left-0 px-1 border-primary border-2 z-10">
           {weaknessName.map((weak) => (
             <button
               className="text-sm px-2 py-1 capitalize rounded-md text-left hover:bg-gray-200"

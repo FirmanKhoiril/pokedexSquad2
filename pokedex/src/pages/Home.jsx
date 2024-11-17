@@ -1,4 +1,5 @@
 import PokemonList from "../components/card/PokemonList";
+import SortingByNNT from "../components/card/SortingByNNT";
 import Filter from "../components/Filter";
 
 const Home = () => {
@@ -6,7 +7,10 @@ const Home = () => {
     <div className="flex container mx-auto w-full flex-col">
       <div className="flex gap-2 w-full lg:flex-row flex-col py-10 h-auto">
         <Filter />
-        <PokemonList />
+        <div className="flex flex-col gap-2 w-full">
+          <SortingByNNT />
+          <PokemonList />
+        </div>
       </div>
     </div>
   );
