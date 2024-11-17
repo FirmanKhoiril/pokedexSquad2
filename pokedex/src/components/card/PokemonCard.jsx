@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const PokemonCard = ({ image, name, id, types }) => {
   const handleBookmarkClick = (e) => {
     e.stopPropagation();
-    console.log("test");
   };
 
   return (
