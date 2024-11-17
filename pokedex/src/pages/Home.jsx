@@ -1,5 +1,5 @@
 import React from "react";
-import PokemonList from "../components/PokemonList";
+import PokemonList from "../components/card/PokemonList";
 import Filter from '../components/Filter'
 import {useQuery} from '@tanstack/react-query'
 import { FilterPokemon } from '../api/FetchPokemon'
