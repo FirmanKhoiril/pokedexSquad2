@@ -1,6 +1,6 @@
 import React from "react";
 import PokemonCard from "./PokemonCard";
-import Filter from "../components/Filter";
+import Filter from "./Filter";
 
 const PokemonList = () => {
   const pokemonData = [
