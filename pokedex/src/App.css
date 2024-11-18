@@ -1,0 +1,9 @@
+.App {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
