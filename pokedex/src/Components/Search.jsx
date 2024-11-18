@@ -16,7 +16,6 @@ function App() {
         placeholder="Search for a Pokémon..."
         value={searchTerm}
         onChange={handleSearchChange}
-        style={{ width: '300px', padding: '10px', marginTop: '20px' }}
       />
     </div>
   );
