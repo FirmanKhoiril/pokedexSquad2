@@ -15,6 +15,8 @@ const StateContext = createContext({
   setOptionSelectType: () => {},
   optionSortBy: "id",
   setOptionSortBy: () => {},
+  bookmarks: [],
+  setBookmarks: () => {},
 });
 
 export const ContextProvider = ({ children }) => {
@@ -28,6 +30,7 @@ export const ContextProvider = ({ children }) => {
     id: "",
     type: "Type",
   });
+  const [bookmarks, setBookmarks] = useState([])
 
 
   return (
@@ -37,6 +40,8 @@ export const ContextProvider = ({ children }) => {
         optionSelectWeakness,
         optionSelectType,
         optionSortBy,
+        bookmarks,
+        setBookmarks,
         setOptionSortBy,
         setOptionSelectGeneration,
         setOptionSelectType,
