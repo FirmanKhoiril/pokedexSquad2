@@ -3,6 +3,27 @@ export const weaknessName = [
    "poison", "ground", "flying", "psychic", "bug", "rock", "ghost", 
    "dragon", "dark", "steel"
  ]
+
+ export const typeWeaknesses = {
+   fire: ['water', 'rock', 'ground'],
+   water: ['electric', 'grass'],
+   grass: ['fire', 'ice', 'poison', 'flying', 'bug'],
+   electric: ['ground'],
+   ice: ['fire', 'fighting', 'rock', 'steel'],
+   fighting: ['flying', 'psychic', 'fairy'],
+   poison: ['ground', 'psychic'],
+   ground: ['water', 'ice', 'grass', 'fairy'],
+   flying: ['electric', 'ice', 'rock'],
+   bug: ['fire', 'flying', 'rock'],
+   rock: ['water', 'grass', 'fighting', 'ground', 'steel'],
+   psychic: ['fighting', 'poison'],
+   steel: ['fire', 'fighting', 'ground'],
+   fairy: ['poison', 'steel'],
+   dragon: ['ice', 'dragon', 'fairy'],
+   dark: ['fighting', 'bug', 'fairy'],
+   normal: ['fighting'],
+};
+
  
  export const types = [
     {
