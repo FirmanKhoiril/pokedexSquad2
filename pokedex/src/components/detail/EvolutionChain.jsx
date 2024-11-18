@@ -24,7 +24,7 @@ const {evolutionChain, isError, isLoading} = useGetAllEvolutionChain({evolutionC
           {evolutionChain.map((pokemon, index) => (
             <div key={pokemon.name} className="flex items-center gap-2">
               <div className="flex gap-2 items-center 2 flex-wrap w-full">
-                <img src={pokemon.image} alt={pokemon.name} loading="lazy" className="w-full md:w-[100px]" />
+                <img src={pokemon.image} alt={pokemon.name} loading="lazy" className="w-full nax-w-[300px] md:w-[100px]" />
                 <div className="">
                 <h1 className="capitalize text-primary font-bold">{pokemon.name}</h1>
                 <p className="font-semibold">#{String(pokemon.id).padStart(4, '0')}</p>

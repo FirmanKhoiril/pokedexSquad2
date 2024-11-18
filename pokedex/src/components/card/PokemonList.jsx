@@ -1,11 +1,22 @@
 import PokemonCard from "./PokemonCard";
-
 import Loading from "../Loading";
 import NotFound from "../NotFound";
 import useFilterPokemon from "../../hooks/useFilterPokemon";
+import { useGlobalContext } from "../../context/useContext";
+import useGetAllBookmarkPokemon from "../../hooks/useGetAllBookmarkPokemon";
+import { useEffect } from "react";
 
 const PokemonList = () => {
-  const {isLoading, isFetching, sortPokemon, data, isSuccess} = useFilterPokemon()
+  const { isLoading, isFetching, sortPokemon, data, isSuccess } =
+    useFilterPokemon();
+  const { data: bookmarksPokemon, isSuccess: bookmarkSuccess } =
+    useGetAllBookmarkPokemon();
+  const { setBookmarks } = useGlobalContext();
+
+  useEffect(() => {
+    setBookmarks(bookmarksPokemon);
+  }, [bookmarkSuccess]);
+
   if (isFetching || isLoading) return <Loading />;
 
   const sortedData = isSuccess ? sortPokemon(data) : [];
