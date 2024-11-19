@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { FaRegSadTear } from 'react-icons/fa';
+
 import { useGlobalContext } from '../context/useContext';
 
 const NotFound = () => {
@@ -7,11 +6,10 @@ const NotFound = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[50dvh] w-full space-y-6 p-6">
-      <div className="text-center flex items-center justify-center flex-col">
-        <FaRegSadTear size={80} className="text-red-500 mb-4" />
+      <div className="text-center relative flex items-center justify-center flex-col">
         <h1 className="text-3xl font-bold">Oops! Pokemon Not Found</h1>
         <p className="text-gray-400 mt-2">
-          No Pokemon match width selected filters.
+          No Pokemon match with selected filters.
         </p>
         <div className="mt-4">
           <h2 className="text-xl font-semibold">Your Selected Filters:</h2>
