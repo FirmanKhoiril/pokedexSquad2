@@ -15,7 +15,7 @@ const PokemonList = () => {
 
   useEffect(() => {
     setBookmarks(bookmarksPokemon);
-  }, [bookmarkSuccess]);
+  }, [bookmarkSuccess, bookmarksPokemon]);
 
   if (isFetching || isLoading) return <Loading />;
 
@@ -26,14 +26,14 @@ const PokemonList = () => {
       <div className="flex flex-wrap items-center gap-6 w-full px-4">
         {sortedData.length === 0 ? (
           <NotFound />
-        ) : (
+        ) : ( sortedData &&
           sortedData.map((pokemon) => (
             <PokemonCard
-              key={pokemon?.id}
-              image={pokemon?.sprites?.other["official-artwork"]?.front_default}
-              name={pokemon?.name}
-              id={pokemon?.id}
-              types={pokemon?.types}
+              key={pokemon.id}
+              image={pokemon.sprites.other["official-artwork"].front_default}
+              name={pokemon.name}
+              id={pokemon.id}
+              types={pokemon.types}
             />
           ))
         )}

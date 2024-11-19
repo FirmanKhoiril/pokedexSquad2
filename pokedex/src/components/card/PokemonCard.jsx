@@ -9,15 +9,14 @@ const PokemonCard = ({ image, name, id, types }) => {
   const isBookmarked = bookmarks?.some((pokemon) => pokemon.id === id);
   
   const handleBookmarkClick = () => {
-    if(!isBookmarked) {
       postPokemon({
         name,
         id,
         types,
         image
       })
-    }
   };
+
 
   return (
     <div
@@ -56,7 +55,11 @@ const PokemonCard = ({ image, name, id, types }) => {
 
       <button
         type="button"
-        onClick={handleBookmarkClick}
+        onClick={() => {
+          if(!isBookmarked) {
+            handleBookmarkClick()
+          }
+        }}
         className="absolute z-20 p-2 top-2 right-2"
       >
         <svg

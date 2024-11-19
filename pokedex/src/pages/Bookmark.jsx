@@ -2,16 +2,9 @@ import useGetAllBookmarkPokemon from "../hooks/useGetAllBookmarkPokemon";
 import PokemonCard from "../components/card/PokemonCard";
 import Loading from "../components/Loading";
 import { Link } from "react-router-dom";
-import { useGlobalContext } from "../context/useContext";
-import { useEffect } from "react";
 
 const Bookmark = () => {
   const { data, isSuccess, isFetching, isLoading } = useGetAllBookmarkPokemon();
-  const {setBookmarks} = useGlobalContext()
-  
-  useEffect(() => {
-    setBookmarks(data);
-}, [isSuccess]);
 
   if (isLoading || isFetching) return <Loading height={"min-h-screen"} />;
 
