@@ -63,7 +63,7 @@ const Navbar = () => {
             Events
           </Link>
           <Link
-            to="/"
+            to="/news"
             onClick={() => handleLinkClick("News")}
             className={`${
               activeLink === "News"
@@ -144,7 +144,7 @@ const Navbar = () => {
               Events
             </Link>
             <Link
-              to="/"
+              to="/news"
               onClick={() => handleLinkClick("News")}
               className={`block px-4 py-2 ${
                 activeLink === "News"
