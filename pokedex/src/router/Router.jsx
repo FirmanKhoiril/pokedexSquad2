@@ -5,6 +5,7 @@ import App from "../App";
 import Home from '../pages/Home'
 import PokemonDetail from "../pages/PokemonDetail";
 import PokemonTradingCardGame from "../pages/PokemonTradingCardGame";
+import Dashboard from "../pages/Dashboard";
 import Bookmark from "../pages/Bookmark";
 
 export const router = createBrowserRouter([
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
           element: <PokemonDetail />,
         },
         {
+          path: "/news",
+          element: <Dashboard />,
+        },
+          {
           path: "/bookmark",
           element: <Bookmark />,
         },

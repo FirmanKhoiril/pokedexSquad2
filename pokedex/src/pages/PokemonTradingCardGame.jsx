@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import LoadingSpinner from "../Components/LoadingSpinner"; 
 
 const PokemonTradingCardGame = () => {
   const [cards, setCards] = useState([]);
@@ -17,6 +18,7 @@ const PokemonTradingCardGame = () => {
         setIsLoading(false);
       } catch (error) {
         console.error("Failed to fetch cards:", error);
+        setIsLoading(false);
       }
     };
     fetchCards();
@@ -108,9 +110,7 @@ const PokemonTradingCardGame = () => {
       </div>
 
       {isLoading ? (
-        <div className="flex justify-center items-center">
-          <div className="w-16 h-16 border-4 border-blue-500 border-dotted rounded-full animate-spin"></div>
-        </div>
+        <LoadingSpinner /> 
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredCards.map((card) => (
