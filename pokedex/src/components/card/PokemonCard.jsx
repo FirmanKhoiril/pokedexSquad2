@@ -1,9 +1,22 @@
+import { useGlobalContext } from "../../context/useContext";
+import usePostPokemon from "../../hooks/usePostPokemon";
 import { typeColors } from "../../services/DataDummy";
 import { Link } from "react-router-dom";
 
 const PokemonCard = ({ image, name, id, types }) => {
-  const handleBookmarkClick = (e) => {
-    e.stopPropagation();
+  const {bookmarks} = useGlobalContext()
+  const {postPokemon} = usePostPokemon()
+  const isBookmarked = bookmarks?.some((pokemon) => pokemon.id === id);
+  
+  const handleBookmarkClick = () => {
+    if(!isBookmarked) {
+      postPokemon({
+        name,
+        id,
+        types,
+        image
+      })
+    }
   };
 
   return (
@@ -48,11 +61,11 @@ const PokemonCard = ({ image, name, id, types }) => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="none"
+          fill={isBookmarked ? "#3666d5" : "none"}
           viewBox="0 0 24 24"
           strokeWidth={2}
           stroke="currentColor"
-          className="w-6 h-6 text-blue-500"
+          className={`w-6 h-6 text-primary`}
         >
           <path
             strokeLinecap="round"

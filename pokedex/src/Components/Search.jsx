@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import './App.css';
+import { useState } from 'react';
 
-function App() {
+function Search() {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearchChange = (event) => {
@@ -22,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default Search;

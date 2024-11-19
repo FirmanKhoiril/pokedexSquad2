@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [activeLink, setActiveLink] = useState("Pokédex");
+  const [activeLink, setActiveLink] = useState("Home");
   const [isOpen, setIsOpen] = useState(false);
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
   };
-
+  
   return (
     <nav className="bg-white w-full sticky top-0 z-20 shadow-md">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between ">
@@ -30,16 +30,15 @@ const Navbar = () => {
           </Link>
           <Link
             to="/"
-            onClick={() => handleLinkClick("Pokédex")}
+            onClick={() => handleLinkClick("About")}
             className={`${
-              activeLink === "Pokédex"
+              activeLink === "About"
                 ? "text-blue-600 font-semibold underline"
                 : "text-blue-300"
             } hover:text-blue-500`}
           >
-            Pokédex
+            About
           </Link>
-
           <Link
             to="/trading-card-game"
             onClick={() => handleLinkClick("Card Game")}
@@ -73,6 +72,17 @@ const Navbar = () => {
           >
             News
           </Link>
+          <Link
+              to="/bookmark"
+              onClick={() => handleLinkClick("Bookmark")}
+              className={`${
+                activeLink === "Bookmark"
+                  ? "text-blue-600 font-semibold underline"
+                  : "text-blue-300"
+              }`}
+            >
+              Bookmark
+            </Link>
         </div>
 
         <button
@@ -96,7 +106,7 @@ const Navbar = () => {
         </button>
 
         {isOpen && (
-          <div className="md:hidden absolute top-[62px] left-0 right-0 bg-white z-10">
+          <div className="md:hidden absolute shadow-md top-[62px] left-0 right-0 bg-white z-10">
             <Link
               to="/"
               onClick={() => handleLinkClick("Home")}
@@ -110,14 +120,14 @@ const Navbar = () => {
             </Link>
             <Link
               to="/"
-              onClick={() => handleLinkClick("Pokédex")}
+              onClick={() => handleLinkClick("About")}
               className={`block px-4 py-2 ${
-                activeLink === "Pokédex"
+                activeLink === "About"
                   ? "text-blue-600 font-semibold underline"
                   : "text-blue-300"
               } hover:bg-gray-100`}
             >
-              Pokédex
+              About
             </Link>
 
             <Link
@@ -131,20 +141,8 @@ const Navbar = () => {
             >
               Card Game
             </Link>
-
             <Link
               to="/"
-              onClick={() => handleLinkClick("Events")}
-              className={`block px-4 py-2 ${
-                activeLink === "Events"
-                  ? "text-blue-600 font-semibold underline"
-                  : "text-blue-300"
-              } hover:bg-gray-100`}
-            >
-              Events
-            </Link>
-            <Link
-              to="/news"
               onClick={() => handleLinkClick("News")}
               className={`block px-4 py-2 ${
                 activeLink === "News"
@@ -153,6 +151,17 @@ const Navbar = () => {
               } hover:bg-gray-100`}
             >
               News
+            </Link>
+            <Link
+              to="/bookmark"
+              onClick={() => handleLinkClick("Bookmark")}
+              className={`block px-4 py-2 ${
+                activeLink === "Bookmark"
+                  ? "text-blue-600 font-semibold underline"
+                  : "text-blue-300"
+              } hover:bg-gray-100`}
+            >
+              Bookmark
             </Link>
           </div>
         )}
