@@ -7,7 +7,8 @@ export default function useFilterPokemon() {
     optionSelectGeneration,
     optionSelectType,
     optionSelectWeakness,
-    optionSortBy
+    optionSortBy,
+    searchInput,
   } = useGlobalContext();
 
   const { data, isLoading, isFetching, isSuccess } = useQuery({
@@ -26,30 +27,44 @@ export default function useFilterPokemon() {
     refetchOnWindowFocus: false,
   });
 
-  const sortPokemon = (pokemonData) => {
-    if (!optionSortBy) return pokemonData;
-  
-    return [...pokemonData].sort((a, b) => {
-      switch (optionSortBy) {
-        case "id":
-          return a.id - b.id;
-  
-        case "name":
-          return a.name.localeCompare(b.name);
-  
-        case "type": {
-          const aType = a.types[0]?.type?.name || "";
-          const bType = b.types[0]?.type?.name || "";
-          return aType.localeCompare(bType);
+  const processPokemonData = () => {
+    if (!isSuccess || !data) return [];
+
+    // Filter Pokémon based on search input
+    let filteredData = data;
+    if (searchInput) {
+      filteredData = filteredData.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(searchInput.toLowerCase())
+      );
+    }
+
+    // Sort Pokémon based on the selected option
+    if (optionSortBy) {
+      filteredData = [...filteredData].sort((a, b) => {
+        switch (optionSortBy) {
+          case "id":
+            return a.id - b.id;
+          case "name":
+            return a.name.localeCompare(b.name);
+          case "type":
+            const aType = a.types[0]?.type?.name || "";
+            const bType = b.types[0]?.type?.name || "";
+            return aType.localeCompare(bType);
+          default:
+            return 0;
         }
-  
-        default:
-          return 0;
-      }
-    });
+      });
+    }
+
+    return filteredData;
   };
 
+  const filteredAndSortedPokemon = processPokemonData();
+
   return {
-    isLoading, isFetching, isSuccess, sortPokemon, data
-  }
+    isLoading,
+    isFetching,
+    isSuccess,
+    filteredAndSortedPokemon,
+  };
 }

@@ -17,6 +17,8 @@ const StateContext = createContext({
   setOptionSortBy: () => {},
   bookmarks: [],
   setBookmarks: () => {},
+  setSearchInput: () => {},
+  searchInput: "",
 });
 
 export const ContextProvider = ({ children }) => {
@@ -31,6 +33,7 @@ export const ContextProvider = ({ children }) => {
     type: "Type",
   });
   const [bookmarks, setBookmarks] = useState([])
+  const [searchInput, setSearchInput] = useState("")
 
 
   return (
@@ -41,6 +44,8 @@ export const ContextProvider = ({ children }) => {
         optionSelectType,
         optionSortBy,
         bookmarks,
+        searchInput,
+        setSearchInput,
         setBookmarks,
         setOptionSortBy,
         setOptionSelectGeneration,

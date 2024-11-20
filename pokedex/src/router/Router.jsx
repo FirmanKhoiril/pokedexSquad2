@@ -7,6 +7,7 @@ import PokemonDetail from "../pages/PokemonDetail";
 import PokemonTradingCardGame from "../pages/PokemonTradingCardGame";
 import Dashboard from "../pages/Dashboard";
 import Bookmark from "../pages/Bookmark";
+import About from '../pages/About'
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
         {
           path: "/news",
           element: <Dashboard />,
+        },
+        {
+          path: "/about",
+          element: <About />,
         },
           {
           path: "/bookmark",
