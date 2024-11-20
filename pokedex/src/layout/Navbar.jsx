@@ -51,17 +51,6 @@ const Navbar = () => {
             Card Game
           </Link>
           <Link
-            to="/"
-            onClick={() => handleLinkClick("Events")}
-            className={`${
-              activeLink === "Events"
-                ? "text-blue-600 font-semibold underline"
-                : "text-blue-300"
-            } hover:text-blue-500`}
-          >
-            Events
-          </Link>
-          <Link
             to="/news"
             onClick={() => handleLinkClick("News")}
             className={`${

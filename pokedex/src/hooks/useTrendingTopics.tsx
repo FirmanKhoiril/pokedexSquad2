@@ -23,7 +23,7 @@ const useTrendingTopics = () => {
         console.log("API Response:", response.data);
 
         if (response.data.success && response.data.data) {
-          setTopics(response.data.data); // Sesuaikan dengan struktur data dari API
+          setTopics(response.data.data)
         } else {
           throw new Error("Invalid API response format");
         }

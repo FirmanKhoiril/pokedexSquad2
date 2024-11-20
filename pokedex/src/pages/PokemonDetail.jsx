@@ -8,9 +8,16 @@ import { typeColors, typeWeaknesses } from "../services/DataDummy";
 import NotFound from "../components/NotFound";
 import { combinedDescription } from "../utils";
 import EvolutionChain from "../components/detail/EvolutionChain";
+import usePostPokemon from "../hooks/usePostPokemon";
+import { useGlobalContext } from "../context/useContext";
+import useGetAllBookmarkPokemon from "../hooks/useGetAllBookmarkPokemon";
+import { useEffect } from "react";
 
 const PokemonDetail = () => {
   const { id } = useParams();
+  const {bookmarks, setBookmarks} = useGlobalContext()
+  const {postPokemon} = usePostPokemon()
+  const isBookmarked = bookmarks?.some((pokemon) => pokemon.id === Number(id));
 
   const {
     data: pokemonData,
@@ -22,6 +29,13 @@ const PokemonDetail = () => {
     isFetching: isFetchingSpecies,
     isLoading: isLoadingSpecies,
   } = useGetSpeciesDetail(id);
+  const { data: bookmarksPokemon, isSuccess: bookmarkSuccess } =
+  useGetAllBookmarkPokemon();
+
+useEffect(() => {
+  setBookmarks(bookmarksPokemon);
+}, [bookmarkSuccess, bookmarksPokemon]);
+
 
   if (
     isFetchingPokemon ||
@@ -38,6 +52,15 @@ const PokemonDetail = () => {
 
     if (pokemonData === null || speciesData === null || id > 1025)
       return <NotFound />;
+
+
+    const handleAddBookmark = (pokemon) => {
+      console.log(pokemon);
+      
+        if(!isBookmarked) {
+          postPokemon(pokemon)
+        }
+    }
 
   return (
     speciesData &&
@@ -192,14 +215,19 @@ const PokemonDetail = () => {
               <p className="text-lg font-bold">
                 #{String(id).padStart(4, "0")}
               </p>
-              <button type="button" className="p-2">
+              <button onClick={() => handleAddBookmark({
+                id: Number(id),
+                name: pokemonData.name,
+                image: pokemonData.sprites.other["official-artwork"].front_default,
+                types: pokemonData.types,
+              })} type="button" className="p-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
+                  fill={isBookmarked ? "#3666d5" : "none"}
                   viewBox="0 0 24 24"
                   strokeWidth={2}
                   stroke="currentColor"
-                  className="w-8 h-8 text-blue-500"
+                  className="w-8 h-8 text-primary"
                 >
                   <path
                     strokeLinecap="round"
