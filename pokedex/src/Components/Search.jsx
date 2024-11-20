@@ -9,7 +9,7 @@ function Search() {
 
   return (
     <div className="App">
-      <h1>Pokedex</h1>
+      <h1>Search Pokemon</h1>
       <input
         type="text"
         placeholder="Search for a Pokémon..."
