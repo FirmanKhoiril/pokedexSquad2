@@ -29,16 +29,15 @@ export default function useFilterPokemon() {
 
   const processPokemonData = () => {
     if (!isSuccess || !data) return [];
-
-    // Filter Pokémon based on search input
+    
     let filteredData = data;
+    
     if (searchInput) {
       filteredData = filteredData.filter((pokemon) =>
         pokemon.name.toLowerCase().includes(searchInput.toLowerCase())
       );
     }
 
-    // Sort Pokémon based on the selected option
     if (optionSortBy) {
       filteredData = [...filteredData].sort((a, b) => {
         switch (optionSortBy) {
