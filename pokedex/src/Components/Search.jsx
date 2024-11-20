@@ -1,21 +1,25 @@
-import { useGlobalContext } from '../context/useContext';
+import { useState } from 'react';
 
 function Search() {
-  const {searchInput, setSearchInput} = useGlobalContext()
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearchChange = (event) => {
-    setSearchInput(event.target.value);
+    setSearchTerm(event.target.value);
   };
 
   return (
-    <div className="App">
-      <h1>Search Pokemon</h1>
-      <input
-        type="text"
-        placeholder="Search for a Pokémon..."
-        value={searchInput}
-        onChange={handleSearchChange}
-      />
+    <div className="app-container">
+      <h1 className="title">Pokédex</h1>
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search for a Pokémon..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+          className="search-input"
+        />
+        <button className="search-button">Search</button>
+      </div>
     </div>
   );
 }
