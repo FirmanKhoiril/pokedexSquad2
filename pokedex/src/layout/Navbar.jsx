@@ -29,7 +29,7 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            to="/"
+            to="/about"
             onClick={() => handleLinkClick("About")}
             className={`${
               activeLink === "About"
@@ -108,7 +108,7 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              to="/"
+              to="/about"
               onClick={() => handleLinkClick("About")}
               className={`block px-4 py-2 ${
                 activeLink === "About"

@@ -7,7 +7,7 @@ import useGetAllBookmarkPokemon from "../../hooks/useGetAllBookmarkPokemon";
 import { useEffect } from "react";
 
 const PokemonList = () => {
-  const { isLoading, isFetching, sortPokemon, data, isSuccess } =
+  const { isLoading, isFetching, filteredAndSortedPokemon } =
     useFilterPokemon();
   const { data: bookmarksPokemon, isSuccess: bookmarkSuccess } =
     useGetAllBookmarkPokemon();
@@ -19,15 +19,14 @@ const PokemonList = () => {
 
   if (isFetching || isLoading) return <Loading />;
 
-  const sortedData = isSuccess ? sortPokemon(data) : [];
 
   return (
     <div className="flex justify-center w-full mt-2">
       <div className="flex flex-wrap items-center gap-6 w-full px-4">
-        {sortedData.length === 0 ? (
+        {filteredAndSortedPokemon.length === 0 ? (
           <NotFound />
-        ) : ( sortedData &&
-          sortedData.map((pokemon) => (
+        ) : ( filteredAndSortedPokemon &&
+          filteredAndSortedPokemon.map((pokemon) => (
             <PokemonCard
               key={pokemon.id}
               image={pokemon.sprites.other["official-artwork"].front_default}

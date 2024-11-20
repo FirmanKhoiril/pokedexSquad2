@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useGlobalContext } from '../context/useContext';
 
 function Search() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const {searchInput, setSearchInput} = useGlobalContext()
 
   const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
+    setSearchInput(event.target.value);
   };
 
   return (
@@ -13,7 +13,7 @@ function Search() {
       <input
         type="text"
         placeholder="Search for a Pokémon..."
-        value={searchTerm}
+        value={searchInput}
         onChange={handleSearchChange}
       />
     </div>
