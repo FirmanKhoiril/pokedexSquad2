@@ -1,4 +1,5 @@
 import { useGlobalContext } from "../../context/useContext";
+import useDeleteBookmarkPokemon from "../../hooks/useDeleteBookmarkPokemon";
 import usePostPokemon from "../../hooks/usePostPokemon";
 import { typeColors } from "../../services/DataDummy";
 import { Link } from "react-router-dom";
@@ -6,17 +7,23 @@ import { Link } from "react-router-dom";
 const PokemonCard = ({ image, name, id, types }) => {
   const {bookmarks} = useGlobalContext()
   const {postPokemon} = usePostPokemon()
-  const isBookmarked = bookmarks?.some((pokemon) => pokemon.id === id);
-  
+  const {deleteBookmark} = useDeleteBookmarkPokemon()
+  const isBookmarked = bookmarks?.some((pokemon) => String(pokemon.id) === String(id));
+
   const handleBookmarkClick = () => {
+    if (!isBookmarked) {
       postPokemon({
         name,
-        id,
+        id: String(id),
         types,
-        image
-      })
+        image,
+      });
+    } else {
+      deleteBookmark(id);
+      console.log(typeof id);
+      
+    }
   };
-
 
   return (
     <div
@@ -55,11 +62,7 @@ const PokemonCard = ({ image, name, id, types }) => {
 
       <button
         type="button"
-        onClick={() => {
-          if(!isBookmarked) {
-            handleBookmarkClick()
-          }
-        }}
+        onClick={handleBookmarkClick}
         className="absolute z-20 p-2 top-2 right-2"
       >
         <svg

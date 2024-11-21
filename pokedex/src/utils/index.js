@@ -6,4 +6,4 @@ export const combinedDescription = (flavorTextEntries) => {
           .map((desc) => desc.flavor_text.replace(/[\n\f]/g, " "))
       ),
     ].join(" ");
-  };
+};

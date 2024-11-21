@@ -29,7 +29,6 @@ export default function useFilterPokemon() {
 
   const processPokemonData = () => {
     if (!isSuccess || !data) return [];
-    
     let filteredData = data;
     
     if (searchInput) {

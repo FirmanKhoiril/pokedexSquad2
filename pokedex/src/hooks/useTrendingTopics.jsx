@@ -13,7 +13,7 @@ const useTrendingTopics = () => {
         url: "https://news-api14.p.rapidapi.com/v2/search/publishers",
         params: { query: "Pokemon" },
         headers: {
-          "x-rapidapi-key": "c7c4c80b6dmsh496186c1b4238c0p1314b8jsnd2c601b6b4a8",
+          "x-rapidapi-key": "6443a330b9mshca44e19b852f815p13be46jsn3253cb1de0ea",
           "x-rapidapi-host": "news-api14.p.rapidapi.com",
         },
       };

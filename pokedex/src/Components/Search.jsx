@@ -8,15 +8,16 @@ function Search() {
   };
 
   return (
-    <div className="app-container">
+    <div className="app-container px-2">
       <h1 className="title">Pokédex</h1>
       <div className="search-container">
         <input
           type="text"
-          placeholder="Search for a Pokémon..."
-          value={searchTerm}
+          placeholder="Search for a Pokemon..."
+          value={searchInput}
           onChange={handleSearchChange}
           className="search-input"
+          required
         />
         <button className="search-button">Search</button>
       </div>
