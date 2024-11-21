@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import {useGlobalContext} from "../context/useContext"
+import { IoClose } from "react-icons/io5";
+import { CiSearch } from "react-icons/ci";
 
 function Search() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const {searchInput, setSearchInput} = useGlobalContext()
 
   const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
+    setSearchInput(event.target.value);
+  };
+
+  const handleClearInput = () => {
+    setSearchInput("");
   };
 
   return (
@@ -20,6 +26,11 @@ function Search() {
           required
         />
         <button className="search-button">Search</button>
+        {searchInput.length > 0 && (
+          <button onClick={handleClearInput} className="absolute left-3" type="button">
+            <IoClose size={24} />
+          </button>
+        )}
       </div>
     </div>
   );
