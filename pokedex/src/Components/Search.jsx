@@ -26,11 +26,13 @@ function Search() {
           required
         />
         <button className="search-button">Search</button>
-        {searchInput.length > 0 && (
+        {searchInput.length > 0 ? (
           <button onClick={handleClearInput} className="absolute left-3" type="button">
             <IoClose size={24} />
           </button>
-        )}
+        ) : <button className="absolute left-3" type="button">
+        <CiSearch size={24} />
+      </button>}
       </div>
     </div>
   );
