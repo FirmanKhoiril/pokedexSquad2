@@ -15,14 +15,13 @@ const Navbar = () => {
         <div className="flex items-center">
           <img src="/src/assets/Logo.png" alt="Pokemon Logo" className="w-24" />
         </div>
-
         <div className="hidden md:flex space-x-8 mx-auto">
           <Link
             to="/"
             onClick={() => handleLinkClick("Home")}
-            className={`${
+            className={`${  
               activeLink === "Home"
-                ? "text-blue-600 font-semibold underline"
+                ? "text-blue-600 font-semibold border-b border-primary pb-1"
                 : "text-blue-300"
             } hover:text-blue-500`}
           >
@@ -33,7 +32,7 @@ const Navbar = () => {
             onClick={() => handleLinkClick("About")}
             className={`${
               activeLink === "About"
-                ? "text-blue-600 font-semibold underline"
+                ? "text-blue-600 font-semibold border-b border-primary pb-1"
                 : "text-blue-300"
             } hover:text-blue-500`}
           >
@@ -44,7 +43,7 @@ const Navbar = () => {
             onClick={() => handleLinkClick("Card Game")}
             className={`${
               activeLink === "Card Game"
-                ? "text-blue-600 font-semibold underline"
+                ? "text-blue-600 font-semibold border-b border-primary pb-1"
                 : "text-blue-300"
             } hover:text-blue-500`}
           >
@@ -55,7 +54,7 @@ const Navbar = () => {
             onClick={() => handleLinkClick("News")}
             className={`${
               activeLink === "News"
-                ? "text-blue-600 font-semibold underline"
+                ? "text-blue-600 font-semibold border-b border-primary pb-1"
                 : "text-blue-300"
             } hover:text-blue-500`}
           >
@@ -66,7 +65,7 @@ const Navbar = () => {
               onClick={() => handleLinkClick("Bookmark")}
               className={`${
                 activeLink === "Bookmark"
-                  ? "text-blue-600 font-semibold underline"
+                  ? "text-blue-600 font-semibold border-b border-primary pb-1"
                   : "text-blue-300"
               }`}
             >
@@ -101,7 +100,7 @@ const Navbar = () => {
               onClick={() => handleLinkClick("Home")}
               className={`block px-4 py-2 ${
                 activeLink === "Home"
-                  ? "text-blue-600 font-semibold underline"
+                  ? "text-blue-600 font-semibold border-b border-primary pb-1"
                   : "text-blue-300"
               } hover:bg-gray-100`}
             >
@@ -112,7 +111,7 @@ const Navbar = () => {
               onClick={() => handleLinkClick("About")}
               className={`block px-4 py-2 ${
                 activeLink === "About"
-                  ? "text-blue-600 font-semibold underline"
+                  ? "text-blue-600 font-semibold border-b border-primary pb-1"
                   : "text-blue-300"
               } hover:bg-gray-100`}
             >
@@ -124,7 +123,7 @@ const Navbar = () => {
               onClick={() => handleLinkClick("Card Game")}
               className={`block px-4 py-2 ${
                 activeLink === "Card Game"
-                  ? "text-blue-600 font-semibold underline"
+                  ? "text-blue-600 font-semibold border-b border-primary pb-1"
                   : "text-blue-300"
               } hover:bg-gray-100`}
             >
@@ -135,7 +134,7 @@ const Navbar = () => {
               onClick={() => handleLinkClick("News")}
               className={`block px-4 py-2 ${
                 activeLink === "News"
-                  ? "text-blue-600 font-semibold underline"
+                  ? "text-blue-600 font-semibold border-b border-primary pb-1"
                   : "text-blue-300"
               } hover:bg-gray-100`}
             >
@@ -146,7 +145,7 @@ const Navbar = () => {
               onClick={() => handleLinkClick("Bookmark")}
               className={`block px-4 py-2 ${
                 activeLink === "Bookmark"
-                  ? "text-blue-600 font-semibold underline"
+                  ? "text-blue-600 font-semibold border-b border-primary pb-1"
                   : "text-blue-300"
               } hover:bg-gray-100`}
             >

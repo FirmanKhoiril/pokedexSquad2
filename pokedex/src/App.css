@@ -2,25 +2,66 @@
     text-align: center;
     margin-top: 50px;
   }
+
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+  }
   
-  h1 {
-    font-size: 36px; 
-    color: #333; 
-    margin-bottom: 20px; 
+  .title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #3666d5;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+  }
+  
+  .search-input {
+    flex-grow: 1;
+    padding: 1.25rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #3666d5; 
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .search-button {
+    background-color: #ffc107;
+    color: #3666d5;
+    font-weight: 500;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background-color: #ffca2c;
   }
   
   input {
     width: 300px; 
     padding: 15px; 
-    border: 2px solid #ddd; 
+    
     border-radius: 25px; 
     font-size: 16px; 
     outline: none; 
     transition: border-color 0.3s; 
-  }
-  
-  input:focus {
-    border-color: #007BFF; 
   }
   
   input::placeholder {

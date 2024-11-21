@@ -12,12 +12,13 @@ import usePostPokemon from "../hooks/usePostPokemon";
 import { useGlobalContext } from "../context/useContext";
 import useGetAllBookmarkPokemon from "../hooks/useGetAllBookmarkPokemon";
 import { useEffect } from "react";
+import useDeleteBookmarkPokemon from "../hooks/useDeleteBookmarkPokemon";
 
 const PokemonDetail = () => {
   const { id } = useParams();
   const {bookmarks, setBookmarks} = useGlobalContext()
   const {postPokemon} = usePostPokemon()
-  const isBookmarked = bookmarks?.some((pokemon) => pokemon.id === Number(id));
+  const {deleteBookmark} = useDeleteBookmarkPokemon()
 
   const {
     data: pokemonData,
@@ -36,7 +37,6 @@ useEffect(() => {
   setBookmarks(bookmarksPokemon);
 }, [bookmarkSuccess, bookmarksPokemon]);
 
-
   if (
     isFetchingPokemon ||
     isLoadingPokemon ||
@@ -53,15 +53,21 @@ useEffect(() => {
     if (pokemonData === null || speciesData === null || id > 1025)
       return <NotFound />;
 
+    const isBookmarked = bookmarks?.some((pokemon) => String(pokemon.id) === id);
 
-    const handleAddBookmark = (pokemon) => {
-      console.log(pokemon);
-      
-        if(!isBookmarked) {
-          postPokemon(pokemon)
-        }
-    }
-
+    const handleBookmarkClick = () => {
+      if (!isBookmarked) {
+        postPokemon({
+          name: pokemonData?.name,
+          id: String(id),
+          types: pokemonData?.types,
+          image: pokemonData?.sprites.other["official-artwork"].front_default,
+        });
+      } else {
+        deleteBookmark(id);
+      }
+    };
+    
   return (
     speciesData &&
     pokemonData && (
@@ -215,12 +221,7 @@ useEffect(() => {
               <p className="text-lg font-bold">
                 #{String(id).padStart(4, "0")}
               </p>
-              <button onClick={() => handleAddBookmark({
-                id: Number(id),
-                name: pokemonData.name,
-                image: pokemonData.sprites.other["official-artwork"].front_default,
-                types: pokemonData.types,
-              })} type="button" className="p-2">
+              <button onClick={handleBookmarkClick} type="button" className="p-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill={isBookmarked ? "#3666d5" : "none"}

@@ -6,12 +6,8 @@ import Search from "../components/Search";
 const Home = () => {
   return (
     <div className="flex container mx-auto w-full min-h-screen flex-col">
-       <div className="">
-         <Search />
- 
-       </div>
+      <Search />
       <div className="flex gap-2 w-full lg:flex-row flex-col py-4 sm:py-10 h-auto">
-       
         <Filter />
         <div className="flex flex-col gap-2 w-full">
           <SortingByNNT />
