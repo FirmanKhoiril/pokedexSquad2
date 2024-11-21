@@ -1,10 +1,10 @@
-import { useGlobalContext } from '../context/useContext';
+import { useState } from 'react';
 
 function Search() {
-  const {searchInput, setSearchInput} = useGlobalContext()
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearchChange = (event) => {
-    setSearchInput(event.target.value);
+    setSearchTerm(event.target.value);
   };
 
   return (
