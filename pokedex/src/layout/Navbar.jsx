@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Logo from '../assets/Logo.png'
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("Home");
@@ -13,7 +14,7 @@ const Navbar = () => {
     <nav className="bg-white w-full sticky top-0 z-20 shadow-md">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between ">
         <div className="flex items-center">
-          <img src="/src/assets/Logo.png" alt="Pokemon Logo" className="w-24" />
+          <img src={Logo} alt="Pokemon Logo" className="w-24" />
         </div>
         <div className="hidden md:flex space-x-8 mx-auto">
           <Link
